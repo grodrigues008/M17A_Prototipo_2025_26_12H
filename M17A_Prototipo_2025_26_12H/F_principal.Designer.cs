@@ -1,6 +1,6 @@
 ﻿namespace M17A_Prototipo_2025_26_12H
 {
-    partial class Form1
+    partial class F_principal
     {
         /// <summary>
         /// Required designer variable.

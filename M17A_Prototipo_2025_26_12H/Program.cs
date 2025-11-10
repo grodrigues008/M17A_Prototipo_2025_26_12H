@@ -16,7 +16,7 @@ namespace M17A_Prototipo_2025_26_12H
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new F_principal());
         }
     }
 }

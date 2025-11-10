@@ -1,0 +1,21 @@
+﻿
+--------------funcionalidades-------------
+programa parar gerir livros, leitores, empréstimos e as devoluções
+CRUD: Leitores,Livros
+Adicionar empréstimos
+Adicionar devoluções
+Consultas???
+Pesquisar leitores, livros
+Adicionar capa do livro (pasta) e a foto do leitor (bd)
+Imprimir dados
+Instalador
+
+--------------modelo de dados-------------
+Leitores(nleitor, nome, data_nascimento, fotografia, estado)
+Livros(nlivro, titulo, autor, isbn, ano, data_aquisicao, preco, capa, estado)
+Emprestimos(nemprestimo, data_emprestimo, data_devolucao, nleitor, nlivro, estado))
+
+
+
+10/11/2025
+Continuar na classe Base de Dados
