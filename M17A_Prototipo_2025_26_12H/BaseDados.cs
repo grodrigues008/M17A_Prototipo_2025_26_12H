@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace M17A_Prototipo_2025_26_12H
 {
@@ -38,8 +39,10 @@ namespace M17A_Prototipo_2025_26_12H
                 //TODO: verificar se a bd existe no catálogo
                 CriarBD();
             }
-
             // Ligação à BD
+            ligacaoSQL = new SqlConnection(strligacao);
+            ligacaoSQL.Open();
+            ligacaoSQL.ChangeDatabase(this.NomeBD);
         }
 
 
@@ -94,6 +97,30 @@ namespace M17A_Prototipo_2025_26_12H
             comando.ExecuteNonQuery();
             comando.Dispose();
 
+        }
+
+        // função para executar comando sql (insert/delete/update/create/alter...)
+        public void ExecutarSQL(string sql, List<SqlParameter> parametros = null)
+        {
+            SqlCommand comando = new SqlCommand(sql, ligacaoSQL);
+            if (parametros != null) 
+                comando.Parameters.AddRange(parametros.ToArray());
+            comando.ExecuteNonQuery();
+            comando.Dispose();
+        }
+
+        // função para executar um select e devolver os registos da bd
+        public DataTable DevolveSQL(string sql, List<SqlParameter> parametros=null)
+        {
+            DataTable dados = new DataTable();
+            SqlCommand comando = new SqlCommand(sql, ligacaoSQL);
+            if (parametros != null)
+                comando.Parameters.AddRange(parametros.ToArray());
+            SqlDataReader registos = comando.ExecuteReader();
+            dados.Load(registos);
+            registos.Close();
+            comando.Dispose();
+            return dados;
         }
 
     }

@@ -190,6 +190,9 @@
     <EmbeddedResource Include="F_principal.resx">
       <DependentUpon>F_principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Livro\F_Livro.resx">
+      <DependentUpon>F_Livro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
