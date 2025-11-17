@@ -13,7 +13,7 @@ namespace M17A_Prototipo_2025_26_12H
     /// Responsável por executar comandos SQL na base de dados
     /// </summary>
 
-    internal class BaseDados
+    public class BaseDados
     {
         string strligacao;
         string NomeBD;

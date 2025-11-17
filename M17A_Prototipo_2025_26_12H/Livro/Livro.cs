@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace M17A_Prototipo_2025_26_12H.Livro
 {
@@ -23,7 +24,14 @@ namespace M17A_Prototipo_2025_26_12H.Livro
         public DateTime data_aquisicao { get; set; }
         public Decimal preco { get; set; }
         public string capa { get; set; }
-        public bool estado { get; set; }       
+        public bool estado { get; set; }
+
+        BaseDados bd;
+
+        public Livro(BaseDados bd)
+        {
+            this.bd = bd;
+        }
 
         // Executa o comando INSERT na base de dados
         public void Adicionar()
@@ -88,11 +96,12 @@ namespace M17A_Prototipo_2025_26_12H.Livro
                     Value = this.capa
                 },
             };
+            bd.ExecutarSQL(sql, parametros);
         }
 
         public void Apagar()
         {
-            throw new NotImplementedException();
+            string sql = "DELETE FROM Livro WHERE nlivro=@nlivro";
         }
 
         public void Atualizar()
@@ -102,7 +111,26 @@ namespace M17A_Prototipo_2025_26_12H.Livro
 
         public List<string> Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+            // validar titulo
+            if (String.IsNullOrEmpty(titulo) || titulo.Length < 3)
+            {
+                erros.Add("O campo título deve ter pelo menos 3 letras");
+            }
+
+            // validar ano
+            if(ano<=0 || ano > DateTime.Now.Year)
+            {
+                erros.Add("O campo ano deve ter um valor superior a 0 e inferior ao ano atual.");
+            }
+            return erros;
+        }
+
+        public DataTable Listar()
+        {
+            return bd.DevolveSQL("SELECT nlivro, titulo, autor, editora FROM Livros ORDER BY titulo");
         }
     }
+
+
 }

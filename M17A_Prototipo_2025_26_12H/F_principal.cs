@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M17A_Prototipo_2025_26_12H.Livro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,19 @@ namespace M17A_Prototipo_2025_26_12H
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // Ficheiro --> Sair
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // Editar -> Livros
+        private void livrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            F_Livro f = new F_Livro(bd);
+            f.Show();
         }
     }
 }
