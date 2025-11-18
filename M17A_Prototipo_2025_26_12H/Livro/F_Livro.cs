@@ -130,6 +130,7 @@ namespace M17A_Prototipo_2025_26_12H.Livro
 
         private void dgv_livros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // fazer aparecer os botões
             bt_editar.Visible = true;
             bt_eliminar.Visible = true;
             bt_imprimir.Visible = true;
@@ -138,6 +139,26 @@ namespace M17A_Prototipo_2025_26_12H.Livro
             if (linha == -1)
                 return;
             nlivro = int.Parse(dgv_livros.Rows[linha].Cells[0].Value.ToString());
+
+            // esconder o botão de adicionar novo
+            bt_guardar.Visible = false;
+
+            // preencher os form com os dados do livro selecionado
+            Livro l = new Livro(bd);
+            l.nlivro = nlivro;
+            l.Procurar();
+            tb_titulo.Text = l.titulo;
+            tb_autor.Text = l.autor;
+            tb_editora.Text = l.editora;
+            tb_ano.Text = l.ano.ToString();
+            tb_isbn.Text = l.isbn;
+            dtp_data.Value = l.data_aquisicao;
+            if (System.IO.File.Exists(l.capa))
+                pb_capa.Image = Image.FromFile(l.capa);
+            tb_preco.Text = l.preco.ToString();
+            // mostrar os botões editar/eliminar/cancelar
+            bt_editar.Visible = true;
+            bt_eliminar.Visible = true;
         }
         
         // Eliminar livro selecionado
@@ -161,6 +182,24 @@ namespace M17A_Prototipo_2025_26_12H.Livro
                 apagar.Apagar();
                 ListarLivros();
             }
+        }
+
+        /// <summary>
+        /// Botão cancelar limpa o formulário
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LimparForm();
+            nlivro = 0;
+            bt_editar.Visible = false;
+        }
+
+        // Pesquisa o nlivro na bd e preenche as propriedades do objeto
+        private void bt_editar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -54,13 +54,14 @@
             this.bt_editar = new System.Windows.Forms.Button();
             this.bt_eliminar = new System.Windows.Forms.Button();
             this.bt_imprimir = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_capa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_livros)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_procurar
             // 
-            this.bt_procurar.Location = new System.Drawing.Point(101, 463);
+            this.bt_procurar.Location = new System.Drawing.Point(160, 471);
             this.bt_procurar.Name = "bt_procurar";
             this.bt_procurar.Size = new System.Drawing.Size(204, 23);
             this.bt_procurar.TabIndex = 27;
@@ -71,7 +72,7 @@
             // 
             // pb_capa
             // 
-            this.pb_capa.Location = new System.Drawing.Point(101, 327);
+            this.pb_capa.Location = new System.Drawing.Point(160, 335);
             this.pb_capa.Name = "pb_capa";
             this.pb_capa.Size = new System.Drawing.Size(204, 119);
             this.pb_capa.TabIndex = 26;
@@ -80,7 +81,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(63, 327);
+            this.label6.Location = new System.Drawing.Point(122, 335);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 25;
@@ -98,7 +99,7 @@
             // 
             // tb_preco
             // 
-            this.tb_preco.Location = new System.Drawing.Point(101, 241);
+            this.tb_preco.Location = new System.Drawing.Point(160, 249);
             this.tb_preco.Name = "tb_preco";
             this.tb_preco.Size = new System.Drawing.Size(204, 20);
             this.tb_preco.TabIndex = 23;
@@ -106,7 +107,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(60, 244);
+            this.label5.Location = new System.Drawing.Point(119, 252);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 22;
@@ -115,7 +116,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 154);
+            this.label4.Location = new System.Drawing.Point(72, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 21;
@@ -124,7 +125,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 105);
+            this.label3.Location = new System.Drawing.Point(114, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 20;
@@ -133,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 66);
+            this.label2.Location = new System.Drawing.Point(122, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 19;
@@ -141,28 +142,28 @@
             // 
             // tb_autor
             // 
-            this.tb_autor.Location = new System.Drawing.Point(101, 66);
+            this.tb_autor.Location = new System.Drawing.Point(160, 74);
             this.tb_autor.Name = "tb_autor";
             this.tb_autor.Size = new System.Drawing.Size(204, 20);
             this.tb_autor.TabIndex = 18;
             // 
             // tb_editora
             // 
-            this.tb_editora.Location = new System.Drawing.Point(101, 105);
+            this.tb_editora.Location = new System.Drawing.Point(160, 113);
             this.tb_editora.Name = "tb_editora";
             this.tb_editora.Size = new System.Drawing.Size(204, 20);
             this.tb_editora.TabIndex = 17;
             // 
             // tb_ano
             // 
-            this.tb_ano.Location = new System.Drawing.Point(101, 154);
+            this.tb_ano.Location = new System.Drawing.Point(160, 162);
             this.tb_ano.Name = "tb_ano";
             this.tb_ano.Size = new System.Drawing.Size(204, 20);
             this.tb_ano.TabIndex = 16;
             // 
             // tb_titulo
             // 
-            this.tb_titulo.Location = new System.Drawing.Point(101, 24);
+            this.tb_titulo.Location = new System.Drawing.Point(160, 32);
             this.tb_titulo.Name = "tb_titulo";
             this.tb_titulo.Size = new System.Drawing.Size(204, 20);
             this.tb_titulo.TabIndex = 15;
@@ -170,7 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 27);
+            this.label1.Location = new System.Drawing.Point(119, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 14;
@@ -179,7 +180,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(63, 279);
+            this.label7.Location = new System.Drawing.Point(122, 287);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 28;
@@ -188,7 +189,7 @@
             // 
             // tb_isbn
             // 
-            this.tb_isbn.Location = new System.Drawing.Point(101, 279);
+            this.tb_isbn.Location = new System.Drawing.Point(160, 287);
             this.tb_isbn.Name = "tb_isbn";
             this.tb_isbn.Size = new System.Drawing.Size(204, 20);
             this.tb_isbn.TabIndex = 29;
@@ -196,7 +197,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 202);
+            this.label8.Location = new System.Drawing.Point(75, 210);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 30;
@@ -204,14 +205,14 @@
             // 
             // dtp_data
             // 
-            this.dtp_data.Location = new System.Drawing.Point(101, 202);
+            this.dtp_data.Location = new System.Drawing.Point(160, 210);
             this.dtp_data.Name = "dtp_data";
             this.dtp_data.Size = new System.Drawing.Size(204, 20);
             this.dtp_data.TabIndex = 32;
             // 
             // bt_guardar
             // 
-            this.bt_guardar.Location = new System.Drawing.Point(101, 495);
+            this.bt_guardar.Location = new System.Drawing.Point(160, 503);
             this.bt_guardar.Name = "bt_guardar";
             this.bt_guardar.Size = new System.Drawing.Size(204, 39);
             this.bt_guardar.TabIndex = 33;
@@ -243,6 +244,7 @@
             this.bt_editar.TabIndex = 36;
             this.bt_editar.Text = "Editar";
             this.bt_editar.UseVisualStyleBackColor = true;
+            this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
             // 
             // bt_eliminar
             // 
@@ -263,11 +265,22 @@
             this.bt_imprimir.Text = "Imprimir";
             this.bt_imprimir.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(26, 471);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 63);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // F_Livro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 574);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bt_imprimir);
             this.Controls.Add(this.bt_eliminar);
             this.Controls.Add(this.bt_editar);
@@ -329,5 +342,6 @@
         private System.Windows.Forms.Button bt_editar;
         private System.Windows.Forms.Button bt_eliminar;
         private System.Windows.Forms.Button bt_imprimir;
+        private System.Windows.Forms.Button button1;
     }
 }

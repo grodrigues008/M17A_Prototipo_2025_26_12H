@@ -101,12 +101,71 @@ namespace M17A_Prototipo_2025_26_12H.Livro
 
         public void Apagar()
         {
-            string sql = "DELETE FROM Livro WHERE nlivro=@nlivro";
+            string sql = "DELETE FROM Livro WHERE nlivro=" + nlivro;
         }
 
         public void Atualizar()
         {
-            throw new NotImplementedException();
+            string sql = @"UPDATE Livros SET titulo=@titulo,autor=@autor,editora=@editora,isbn=@isbn,ano=@ano,data_aquisicao=@data_aquisicao,preco=@preco,capa=@capa WHERE nlivro=@nlivro";
+            List<SqlParameter> parametros = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName = "@titulo",
+                    SqlDbType=System.Data.SqlDbType.VarChar,
+                    Value = this.titulo
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@autor",
+                    SqlDbType=System.Data.SqlDbType.VarChar,
+                    Value = this.autor
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@editora",
+                    SqlDbType=System.Data.SqlDbType.VarChar,
+                    Value = this.editora
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@isbn",
+                    SqlDbType=System.Data.SqlDbType.VarChar,
+                    Value = this.isbn
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@ano",
+                    SqlDbType=System.Data.SqlDbType.Int,
+                    Value = this.ano
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@data_aquisicao",
+                    SqlDbType=System.Data.SqlDbType.Date,
+                    Value = this.data_aquisicao
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@preco",
+                    SqlDbType=System.Data.SqlDbType.Money,
+                    Value = this.preco
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@capa",
+                    SqlDbType=System.Data.SqlDbType.VarChar,
+                    Value = this.capa
+                },
+            };
+            bd.ExecutarSQL(sql, parametros);
         }
 
         public List<string> Validar()
@@ -129,6 +188,29 @@ namespace M17A_Prototipo_2025_26_12H.Livro
         public DataTable Listar()
         {
             return bd.DevolveSQL("SELECT nlivro, titulo, autor, editora FROM Livros ORDER BY titulo");
+        }
+
+
+        /// <summary>
+        /// Pesquisa o nlivro na bd e preenche as propriedades do objeto
+        /// </summary>
+        public void Procurar()
+        {
+            string sql = "SELECT * FROM LIVROS WHERE nlivro=" + nlivro;
+            DataTable temp = bd.DevolveSQL(sql);
+            if (temp != null && temp.Rows.Count > 0)
+            {
+                DataRow linha = temp.Rows[0];
+                this.titulo = linha["titulo"].ToString();
+                this.isbn = linha["isbn"].ToString();
+                this.preco = Decimal.Parse(linha["preco"].ToString());
+                this.autor = linha["autor"].ToString();
+                this.data_aquisicao = DateTime.Parse(linha["data_aquisicao"].ToString());
+                this.ano = int.Parse(linha["ano"].ToString());
+                this.capa = linha["capa"].ToString();
+                this.editora = linha["editora"].ToString();
+                this.estado = bool.Parse(linha["estado"].ToString());
+            }
         }
     }
 
