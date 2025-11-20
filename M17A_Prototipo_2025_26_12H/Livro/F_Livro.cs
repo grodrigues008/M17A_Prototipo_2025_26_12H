@@ -199,7 +199,64 @@ namespace M17A_Prototipo_2025_26_12H.Livro
         // Pesquisa o nlivro na bd e preenche as propriedades do objeto
         private void bt_editar_Click(object sender, EventArgs e)
         {
+            // criar um objeto do tipo livro
+            Livro novo = new Livro(bd);
+            novo.nlivro = nlivro;
+            // preencher os dados do livro
+            novo.titulo = tb_titulo.Text;
+            novo.autor = tb_autor.Text;
+            novo.editora = tb_editora.Text;
+            novo.isbn = tb_isbn.Text;
+            novo.ano = int.Parse(tb_ano.Text);
+            novo.data_aquisicao = dtp_data.Value;
+            novo.preco = Decimal.Parse(tb_preco.Text);
+            novo.capa = Utils.PastaDoPrograma("M17A_Biblioteca") + @"\" + novo.isbn;
+            // validar os dados
+            List<string> erros = novo.Validar();
+            // se não tiver erros nos dados
+            if (erros.Count > 0)
+            {
+                //mostrar os erros
+                string mensagem = "";
+                foreach (string erro in erros)
+                    mensagem += erro + "; ";
+                lb_feedback.Text = mensagem;
+                lb_feedback.ForeColor = Color.Red;
+                return;
+            }
+            // guardar na base de dados
+            novo.Atualizar();
+            // copiar a capa para a pasta do programa
+            if (capa != "")
+            {
+                if (System.IO.File.Exists(capa))
+                    System.IO.File.Copy(capa, novo.capa, true);
+            }
+            // limpar o form
+            LimparForm();
+            // atualizar a lista dos livros na datagrid
+            ListarLivros();
+            // feedback user
+            lb_feedback.Text = "Livro adicionado com sucesso.";
+            lb_feedback.ForeColor = Color.Black;
+        }
 
+        private void tb_pesquisa_TextChanged(object sender, EventArgs e)
+        {
+            Livro l = new Livro(bd);
+            dgv_livros.DataSource = l.Procurar("titulo", tb_pesquisa.Text);
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impressora i = new Impressora();
+            i.imprimeGrelha(printDocument1, e, dgv_livros);
+        }
+        // Imprimir o conteudo da DataG
+        private void bt_imprimir_Click(object sender, EventArgs e)
+        {
+            printDocument1.DefaultPageSettings.Landscape = true;
+            printPreviewDialog1.ShowDialog();
         }
     }
 }

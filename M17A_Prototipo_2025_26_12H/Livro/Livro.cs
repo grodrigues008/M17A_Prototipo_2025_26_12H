@@ -187,7 +187,7 @@ namespace M17A_Prototipo_2025_26_12H.Livro
 
         public DataTable Listar()
         {
-            return bd.DevolveSQL("SELECT nlivro, titulo, autor, editora FROM Livros ORDER BY titulo");
+            return bd.DevolveSQL("SELECT nlivro, titulo, autor, editora, estado FROM Livros ORDER BY titulo");
         }
 
 
@@ -211,6 +211,22 @@ namespace M17A_Prototipo_2025_26_12H.Livro
                 this.editora = linha["editora"].ToString();
                 this.estado = bool.Parse(linha["estado"].ToString());
             }
+        }
+
+        public object Procurar(string campo, string texto_pesquisar)
+        {
+            string sql = "SELECT nlivro,titulo,autor,editora,estado FROM Livros ";
+            sql += "WHERE " + campo + " LIKE @pesquisa";
+            List<SqlParameter> parametros = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName = "@pesquisa",
+                    SqlDbType = SqlDbType.VarChar,
+                    Value = "%" + texto_pesquisar + "%"
+                }
+            };
+            return bd.DevolveSQL(sql, parametros);
         }
     }
 

@@ -48,6 +48,8 @@
             this.menuStrip1.Size = new System.Drawing.Size(1026, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.menuStrip1.Click += new System.EventHandler(this.menuStrip1_Click);
             // 
             // ficheiroToolStripMenuItem
             // 
@@ -62,7 +64,7 @@
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.R)));
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.sairToolStripMenuItem.Text = "Sai&r";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -79,20 +81,20 @@
             // livrosToolStripMenuItem
             // 
             this.livrosToolStripMenuItem.Name = "livrosToolStripMenuItem";
-            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.livrosToolStripMenuItem.Text = "&Livros";
             this.livrosToolStripMenuItem.Click += new System.EventHandler(this.livrosToolStripMenuItem_Click);
             // 
             // leitoresToolStripMenuItem
             // 
             this.leitoresToolStripMenuItem.Name = "leitoresToolStripMenuItem";
-            this.leitoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.leitoresToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.leitoresToolStripMenuItem.Text = "Leitore&s";
             // 
             // empréstimosToolStripMenuItem
             // 
             this.empréstimosToolStripMenuItem.Name = "empréstimosToolStripMenuItem";
-            this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.empréstimosToolStripMenuItem.Text = "E&mpréstimos";
             // 
             // F_principal

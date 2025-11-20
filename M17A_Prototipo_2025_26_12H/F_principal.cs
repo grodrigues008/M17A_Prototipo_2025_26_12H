@@ -53,5 +53,15 @@ namespace M17A_Prototipo_2025_26_12H
             F_Livro f = new F_Livro(bd);
             f.Show();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
