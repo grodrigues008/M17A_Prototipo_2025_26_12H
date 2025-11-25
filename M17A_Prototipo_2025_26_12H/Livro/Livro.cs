@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace M17A_Prototipo_2025_26_12H.Livro
+namespace  M17A_Prototipo_2025_26_12H.Livro
 {
     /// <summary>
     /// Dados do Livro e funções para materializar os dados na BD
